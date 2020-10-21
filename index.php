@@ -23,12 +23,10 @@ else{
     $Data = <<<dd
     <div class="col-md-6 col-lg-4 mb-4">
       <div class="card listing-preview">
-        <img class="card-img-top" src="{$Movie1['img_location']}" alt=""  height="200">
-        <div class="card-img-overlay">
-        </div>
+        <a href="schedule/index.php?s_id={$Row['id']}"><img class="card-img-top" src="{$Movie1['img_location']}" alt=""  height="200"></a>
         <div class="card-body">
           <div class="listing-heading text-center">
-            <h4 class="text-primary">{$Movie1['title']}</h4>
+            <a href="schedule/index.php?s_id={$Row['id']}" class="text-decoration-none"><h4 class="text-primary">{$Movie1['title']}</h4></a>
           </div>
           <hr>
           <div class="listing">
