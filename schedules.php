@@ -1,6 +1,7 @@
 <?php require_once ('resources/config.php')?>
 <?php require_once("resources/header.php")?>
 <h5>Search schedule by date</h5>
+<!-- To display saved schedules for any particular day -->
 <form action="" class="form-inline" enctype="multipart/form-data" method="post">
   <input type="date" name='sch_date' id="sch_date" required/>
   <br>

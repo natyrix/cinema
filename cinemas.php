@@ -3,8 +3,10 @@
 <h4 class="text-center">Cinemas</h4>
 <div class="row">
 <?php
+//query to the database to select from the cinema table
 $Cinemas = query("SELECT * FROM cinetest_cinema");
 confirm($Cinemas);
+//Fetching each row from the result
 while($Row=fetch_array($Cinemas)){
   $Data = <<<dd
   <div class="col-md-6 col-lg-4 mb-4">

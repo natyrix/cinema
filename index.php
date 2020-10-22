@@ -4,8 +4,10 @@
 <h4 class="text-center">Todays Schedule</h4>
 <div class="row">
 <?php
+//Select all todays schedules form the schedule table 
 $Schedules = query("SELECT * FROM cinetest_schedule WHERE date(date)=curdate()");
 confirm($Schedules);
+//Check if there is any schedule for today
 if(num_rows($Schedules)<1){
   $Data = <<<d
     <h6>No Schedule found for today</h6>
@@ -13,6 +15,7 @@ if(num_rows($Schedules)<1){
   echo $Data;
 }
 else{
+  //Fetch each row from the query result
   while($Row=fetch_array($Schedules)){
     $Cinema = query("SELECT * FROM cinetest_cinema WHERE id={$Row['cinema_id']}");
     confirm($Cinema);

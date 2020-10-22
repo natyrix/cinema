@@ -1,7 +1,8 @@
 <?php
 require_once("../resources/config.php");
 require_once("../resources/schedules/header.php");
-
+//check if s_id is set as a GET variable
+//if it is set select the schedule associated with that id and display
 if(isset($_GET['s_id'])){
   ?>
   <div class="row>

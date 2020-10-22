@@ -1,30 +1,36 @@
 <?php
+//To make redirects to any address/location
 function redirect($location){
   header("Location: $location");
 }
+//to execute any mysql query
 function query($sql){
   global $Connection;
   return mysqli_query($Connection,$sql);
 }
-
+//to check if our query is correct or not
 function confirm($result){
   global $Connection;
   if(!$result){
       die("QUERY FAILED " . mysqli_error($Connection));
   }
 }
+//to escape any strings that might lead up to sql injection
 function escape_string($string){
   global $Connection;
   return mysqli_real_escape_string($Connection,$string);
 }
+//to fetch the next row from the result set
 function fetch_array($result){
   return mysqli_fetch_array($result);
 }
+//returns the number of rows in the result set
 function num_rows($result){
   $x=mysqli_num_rows($result);
   return $x;
 }
 
+//to set the selected to a SESSION and then in the schedule.php file the filtering will occur
 function search_by_date(){
   if($_SERVER['REQUEST_METHOD']=="POST" || isset($_POST['submit'])){
     $Selected_date = escape_string(trim($_POST['sch_date']));
@@ -32,6 +38,7 @@ function search_by_date(){
     redirect('schedules.php');
   }
 }
+//to handle reservation made by the guest
 function reserve_for_guest(){
   if($_SERVER['REQUEST_METHOD']=="POST" || isset($_POST['submit'])){
     $First_name = escape_string(trim($_POST['fname']));
